@@ -1,0 +1,27 @@
+group 'SocketServer'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'scala'
+
+sourceCompatibility = 1.8
+
+sourceSets {
+    src {
+        java {
+            srcDirs = ['src/Java']
+        }
+        scala{
+            srcDirs = ['src/Scala']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
