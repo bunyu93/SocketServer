@@ -47,3 +47,4 @@ fabric.properties
 #ignore folders
 .idea
 .gradle
+build/
