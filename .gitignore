@@ -48,5 +48,4 @@ fabric.properties
 .idea
 
 target/
-project/
 classes/
