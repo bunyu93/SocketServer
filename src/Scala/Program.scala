@@ -43,19 +43,20 @@ object Program{
       }
     })
 
-    //Display Frame
-    frame.pack()
-    frame.setSize(500,150)
-    frame.setLocationRelativeTo(null)
-    frame.setResizable(false)
-
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
-    frame.setVisible(true)
-
     //Add all to panel
     frame.add(panelHolder)
     panelHolder.add(statusLabel, BorderLayout.CENTER)
     panelHolder.add(startButton, BorderLayout.WEST)
     panelHolder.add(stopButton, BorderLayout.EAST)
+
+    //Display Frame
+    frame.setSize(1000,300)
+    frame.setLocationRelativeTo(null)
+    frame.setResizable(false)
+
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+
+    frame.pack()
+    frame.setVisible(true)
   }
 }

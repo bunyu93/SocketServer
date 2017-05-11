@@ -9,17 +9,17 @@ import scala.util.control.Breaks
 object SocketLogic{
   var allDevices: List[String] = List()
   var status: Boolean = false
-  val port: Int = 21
+  val port: Int = 1234
 
-  val s1 = new server(port)
-  val t1 = new Thread(s1)
+  val SocketServer = new server(port)
+  val threadSocketServer = new Thread(SocketServer)
   def StartServer():String = {
-    t1.start()
+    threadSocketServer.start()
     "Server is listing op port : " + port
   }
 
   def StopServer():String = {
-    s1.StopServer()
+    SocketServer.StopServer()
     "Server is down"
   }
 }
