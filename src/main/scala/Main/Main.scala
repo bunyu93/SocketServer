@@ -6,6 +6,8 @@ import java.net.ServerSocket
 
 import com.sun.xml.internal.ws.client.ClientSchemaValidationTube
 
+import scala.collection.mutable.ListBuffer
+
 //java -jar app.jar {Locatie jar file}
 
 object Main{
@@ -16,8 +18,9 @@ object Main{
 
     var SS:ServerSocket = null
     var socket:Socket = null
+    var ListAllDevices = ListBuffer[DeviceInfo]()
 
-    val BCT:Broadcast = new Broadcast()
+    val BCT:Broadcast = new Broadcast(ListAllDevices)
 
     try{SS = new ServerSocket(portServer)}
     catch {
@@ -38,8 +41,8 @@ object Main{
       }
 
       // new thread for a client
-      BCT.listClients += socket
-      new Clients(socket,BCT,clientNumber).start()
+      ListAllDevices += new DeviceInfo(socket,clientNumber)
+      new Clients(socket,clientNumber,ListAllDevices).start()
 
     }
   }
